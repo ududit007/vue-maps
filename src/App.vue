@@ -84,7 +84,7 @@ export default {
       }
     },
     created() {
-      console.log("computed")
+     
     },
     updated() {
       
@@ -92,7 +92,6 @@ export default {
     },
     
     mounted() {
-      console.log("mounted")
       
     }
   }
