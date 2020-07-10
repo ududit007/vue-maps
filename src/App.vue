@@ -83,17 +83,6 @@ export default {
         
       }
     },
-    created() {
-     
-    },
-    updated() {
-      
-     
-    },
-    
-    mounted() {
-      
-    }
   }
 </script>
 
