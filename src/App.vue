@@ -47,14 +47,11 @@ export default {
     }),
     methods: {
       getLocation() {
-        console.log("address:", this.address)
         const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + this.address + '.json?access_token=pk.eyJ1IjoidWR1ZGl0MDA3IiwiYSI6ImNrMWhpejZ4NDFhaDAzaHFtdndpejZlMXoifQ.B_k4N8sXB5F-HyK1sXi8qw'
         this.$http.get(url).then(response=>{
-        console.log("responsee:", response);
         if (response.body.features.length > 0){
                     this.lat=response.body.features[0].center[1];
                     this.lng=response.body.features[0].center[0];
-                    console.log("res:", this.lat, this.lng)
                   }
                   else {
                     alert("entered address doesn't exist")
@@ -68,7 +65,6 @@ export default {
       }
     },
     updated() {
-      console.log("updated",this.lat, this.lng)
       this.map = new window.google.maps.Map(this.$refs["map"], {
         center: {lat: this.lat, lng: this.lng},
         zoom: 7
@@ -79,14 +75,7 @@ export default {
       })
      
     },
-    beforeUpdate() {
-      console.log("beforeupdate")
-    },
-    beforeDestroy() {
-      console.log("before estory")
-    },
     mounted() {
-      console.log("windoww", window.google)
       this.map = new window.google.maps.Map(this.$refs["map"], {
         center: {lat: this.lat, lng: this.lng}, 
         zoom: 7
@@ -100,8 +89,7 @@ export default {
 </script>
 
 <style scoped>
-  #map{/*
-    width:60%;*/
+  #map{
     height: 400px;
     text-align: center;
   }
